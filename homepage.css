@@ -1,0 +1,244 @@
+/*Animation Keyframes*/
+
+@keyframes draw {
+    0% {
+        stroke-dashoffset: 100%;
+        fill-opacity: 0;
+    }
+    50% {
+        stroke-dashoffset: 0;
+        fill-opacity: 0;
+    }
+    100% {
+        fill-opacity: 1;
+    }
+}
+
+.name-text {
+    stroke-dasharray: 100%;
+    stroke-dashoffset: 100%;
+    fill-opacity: 0;
+    animation: draw 5s forwards;
+}
+
+/* General Styles */
+body {
+    font-family: 'Open Sans', sans-serif; /* Modern, readable font */
+    line-height: 1.6; /* Improved line spacing */
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Light grey background */
+    color: #333; /* Dark grey text */
+}
+
+header {
+    background: #4a0072;
+    color: #ffffff;
+    text-align: center;
+    padding: 1.5em 0;
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 0.5em;
+}
+
+header p {
+    font-size: 1.25em;
+}
+
+nav {
+    text-align: center;
+    margin-top: 1em;
+}
+
+nav ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.2em;
+    padding: 10px 20px; /* Larger clickable area */
+    transition: background 0.3s ease; /* Smooth transition */
+}
+
+nav ul li a:hover {
+    color: #eeeeee;
+    background: #ddd; /* Background on hover */
+}
+
+section {
+    padding: 20px; /* More spacing around sections */
+
+}
+
+#projects {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the child elements */
+}
+
+
+#projects-title {
+    text-align: center;
+    font-size: 2.5em;
+    margin: 20px 0;
+    color: #4a0072;
+}
+
+.project {
+    background: #ffffff;
+    margin: 15px 0;
+    padding: 15px;
+    border: 1px solid #dddddd;
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+    max-width: 80%;
+}
+
+.project-image {
+    max-width: 150px;
+    border-radius: 8px;
+    margin-right: 15px;
+}
+
+.project-content {
+    text-align: center;
+    width: 100%;
+    font-size: .8em;
+}
+
+.project-title {
+    margin: 10px 0;
+    font-size: 2em;
+}
+
+.project-description,
+.project-languages {
+    margin: 5px 0;
+}
+
+.project:hover {
+    box-shadow: 0px 6px 8px 0px rgba(0, 0, 0, 0.2);
+}
+
+
+footer {
+    background: #4a0072;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+}
+
+#contact-form {
+    max-width: 500px;
+    margin: auto;
+}
+
+label, input, textarea {
+    display: block;
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+footer#contact h2 {
+    text-align: center;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #ffffff; /* Changed to white for better contrast */
+    text-shadow: 1px 1px #000000, 2px 2px #000000, 3px 3px #000000; /* Creating 3D effect */
+    position: relative;
+}
+
+.btn-light {
+    background-color: #ffffff;
+    color: #4a0072;
+    border: 2px solid #4a0072;
+    padding: 15px 30px; /* Increased padding to enlarge the button */
+    border-radius: 25px;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    outline: none;
+    font-size: 1.2em; /* Optionally increase font size */
+    font-weight: 600;
+}
+
+.btn-light:hover {
+    background-color: #4a0072;
+    color: #ffffff;
+    box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+}
+
+.btn-light:active {
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.1);
+    transform: scale(1);
+}
+
+
+
+
+.project:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+    box-shadow: 0px 6px 8px 0px rgba(0, 0, 0, 0.2); /* Example shadow on hover, adjust as needed */
+
+}
+
+.form-step {
+    display: none;
+}
+
+.form-step.active {
+    display: block;
+}
+
+
+/* Responsive Styles */
+@media only screen and (max-width: 768px) {
+    header h1 {
+        font-size: 2em;
+    }
+
+    header p, nav ul li a {
+        font-size: 1em;
+    }
+
+    #projects-title {
+        font-size: 2em;
+        margin-top: 15px;
+        margin-bottom: 8px;
+    }
+
+    .project-title {
+        font-size: 1.5em;
+    }
+
+    .project-description, .project-languages {
+        font-size: 1em;
+    }
+
+    .project-image {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    nav ul {
+        flex-direction: column; /* Stack menu items vertically on small screens */
+    }
+}

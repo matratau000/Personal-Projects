@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Taulant Matraku - Portfolio</title>
+    <link rel="stylesheet" type="text/css" href="homepage.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.css" />
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="name-animation">
+            <svg viewBox="0 0 800 100" xmlns="http://www.w3.org/2000/svg">
+                <text x="50%" y="50%" alignment-baseline="middle" text-anchor="middle" font-size="40" font-family="'Arial', sans-serif" fill="#ffffff" stroke="#ffffff" stroke-width="1" class="name-text">Taulant Matraku</text>
+            </svg>
+        </div>
+        <p>Software Engineer</p>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <script>
+        $(document).ready(function() {
+            AOS.init();
+
+            $('nav a').click(function(e) {
+                e.preventDefault();
+                var href = $(this).attr('href');
+                var offset = $(href).offset().top - $('header').outerHeight(true);
+                $('html, body').animate({
+                    scrollTop: offset
+                }, 1000);
+            });
+        });
+    </script>
+</body>
+
+<body>
+    <section id="about" data-aos="fade-up" data-aos-duration="1000">
+    <h2>About Me</h2>
+    <p>
+        Hello! I'm [Your Name], a passionate and dedicated software engineer with a love for innovative technology and creative solutions. I hold a [Your Degree] in Computer Science from [Your University], where I honed my skills in [mention a few skills, e.g., software development, data analysis, etc.], and developed a keen interest in [mention a field or technology, e.g., Artificial Intelligence, Web Development, etc.].
+    </p>
+    <p>
+        My journey in the tech world started when [mention a brief anecdote or fact about your start in tech, e.g., "I wrote my first computer program at the age of 10," or "I dismantled my first computer to understand its workings."] Since then, I've been on a continuous learning path, embracing new technologies and striving to solve real-world problems through innovative solutions.
+    </p>
+    <p>
+        I specialize in [mention some technologies or fields, e.g., front-end development, Python programming, machine learning, etc.], and I have experience working with [mention some tools, frameworks, or languages, e.g., React.js, Django, TensorFlow, etc.]. My passion lies in [mention what you are passionate about, e.g., creating intuitive and user-friendly applications, designing efficient algorithms, etc.], and I am always eager to take on new challenges and learn new skills.
+    </p>
+    <p>
+        When I'm not coding, you can find me [mention some hobbies or interests, e.g., exploring hiking trails, reading tech blogs, volunteering at local organizations, etc.]. I'm a [mention some personal traits, e.g., quick learner, avid problem solver, etc.], and I believe in [mention some values or philosophies, e.g., continuous learning, giving back to the community, etc.].
+    </p>
+    <p>
+        I'm excited to [mention your career aspirations or goals, e.g., contribute to innovative projects, collaborate with like-minded individuals, etc.], and I am currently [mention your current status or focus, e.g., exploring new opportunities, working on personal projects, etc.].
+    </p>
+</section>
+<h2 id="projects-title">My Projects</h2>
+ <section id="projects" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+    <div class="project">
+        <img src="stock_market_project.png" alt="Stock Market Prediction Preview" class="project-image">
+        <div class="project-content">
+        <h2 class="project-title">Stock Market Price Prediction</h2>
+        <p class="project-description">
+            This project involved creating a robust and accurate model to predict the stock prices of Apple, Amazon, Walmart, Tesla, and the S&P 500. Various analytical techniques were employed to analyze trends and make future price predictions. The project aimed to provide insights and assist in making informed investment decisions.
+        </p>
+        <p class="project-languages">Technologies Used: NUMPY, Jupyter Notebook, [Other Relevant Technologies]</p>
+    </div>
+    </div>
+    <div class="project">
+        <img src="xray_analysis_project.png" alt="Xray Analysis for Pneumonia Detection Preview" class="project-image">
+        <div class="project-content">
+        <h2 class="project-title">Xray Analysis for Pneumonia Detection</h2>
+        <p class="project-description">
+            In this innovative project, I utilized advanced analytical methods to analyze X-rays and detect pneumonia. The project involved the use of sophisticated algorithms to accurately identify signs of pneumonia in chest X-rays, contributing significantly to early detection and diagnosis, aiding timely and effective treatment.
+        </p>
+        <p class="project-languages">Technologies Used: NUMPY, [Other Relevant Technologies]</p>
+    </div>
+    </div>
+
+    <!-- Project 3 -->
+<div class="project">
+    <img src="project_3_preview.png" alt="Project 3 Preview" class="project-image">
+    <div class="project-content">
+    <h2 class="project-title">Innovative AI Solution</h2>
+    <p class="project-description">
+        This project harnesses the power of Artificial Intelligence to solve real-world problems. It employs cutting-edge machine learning algorithms to process data, derive insights and make predictions or recommendations.
+    </p>
+    <p class="project-languages">Technologies Used: TensorFlow, Python, Scikit-Learn, [Other Relevant Technologies]</p>
+</div>
+</div>
+
+<!-- Project 4 -->
+<div class="project">
+    <img src="project_4_preview.png" alt="Project 4 Preview" class="project-image">
+    <div class="project-content">
+    <h2 class="project-title">Responsive Web Application</h2>
+    <p class="project-description">
+        This project is a web application designed to be fully responsive, ensuring optimal viewing experience across a wide range of devices. It features user-friendly interfaces and high-performance backend services.
+    </p>
+    <p class="project-languages">Technologies Used: React.js, Node.js, Express.js, MongoDB, [Other Relevant Technologies]</p>
+</div>
+</div>
+
+<!-- Project 5 -->
+<div class="project">
+    <img src="project_5_preview.png" alt="Project 5 Preview" class="project-image">
+    <div class="project-content">
+    <h2 class="project-title">Cybersecurity Analysis Tool</h2>
+    <p class="project-description">
+        This project is a comprehensive tool designed for analyzing and mitigating cybersecurity threats. It utilizes advanced analytical methods to identify vulnerabilities and protect against malicious attacks.
+    </p>
+    <p class="project-languages">Technologies Used: Python, Wireshark, Snort, [Other Relevant Technologies]</p>
+</div>
+</div>
+
+<!-- Project 6 -->
+<div class="project">
+    <img src="project_6_preview.png" alt="Project 6 Preview" class="project-image">
+    <div class="project-content">
+    <h2 class="project-title">Blockchain-based Application</h2>
+    <p class="project-description">
+        This project leverages blockchain technology to create a secure and transparent system for transactions. It employs cryptographic techniques to ensure data integrity and confidentiality.
+    </p>
+    <p class="project-languages">Technologies Used: Ethereum, Solidity, Web3.js, [Other Relevant Technologies]</p>
+</div>
+</div>
+
+</section>
+
+
+    <footer id="contact" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+    <h2>Contact Me</h2>
+    <form id="contact-form" class="needs-validation" novalidate>
+        <div class="form-step" id="step-1">
+            <label for="name" class="form-label">Please enter your NAME and click Next when done:</label>
+            <input type="text" id="name" name="name" class="form-control" required>
+<button type="button" class="btn btn-light mt-2 btn-next" data-next="2">Next</button>
+        </div>
+        
+        <div class="form-step" id="step-2">
+            <label for="email" class="form-label">Please enter your Email:</label>
+            <input type="email" id="email" name="email" class="form-control" required>
+<button type="button" class="btn btn-light mt-2 btn-next" data-next="2">Next</button>
+        </div>
+        
+        <div class="form-step" id="step-3">
+            <label for="message" class="form-label">Leave me a Message:</label>
+            <textarea id="message" name="message" rows="4" class="form-control" required></textarea>
+            <button type="submit" class="btn btn-light mt-2">Submit Contact Form</button>
+        </div>
+    </form>
+</footer>
+</body>
+
+</html>
