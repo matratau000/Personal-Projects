@@ -1,36 +1,50 @@
-/*Animation Keyframes*/
+/* ============================ General Styles ============================ */
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: radial-gradient(circle at var(--x) var(--y), #4a0072, #ffffff);
+    
+}
+header, footer {
+    /* ... other styles ... */
+    background: rgba(74, 0, 114, 0.9); /* Semi-transparent background */
+    backdrop-filter: blur(10px); /* Soften the background */
+    transition: background 0.3s ease; /* Smooth transition */
+}
 
+header:hover, footer:hover {
+    background: rgba(74, 0, 114, 1); /* Slightly less transparent on hover */
+}
+
+/* Optionally adjust text colors and shadows for better readability */
+header h1, header p, footer {
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Adjust as needed */
+}
+
+/* ============================ Animation Keyframes ============================ */
 @keyframes draw {
-    0% {
+    0%, 50% {
         stroke-dashoffset: 100%;
         fill-opacity: 0;
     }
-    50% {
-        stroke-dashoffset: 0;
-        fill-opacity: 0;
-    }
     100% {
+        stroke-dashoffset: 0;
         fill-opacity: 1;
     }
 }
 
 .name-text {
     stroke-dasharray: 100%;
-    stroke-dashoffset: 100%;
-    fill-opacity: 0;
     animation: draw 5s forwards;
 }
 
-/* General Styles */
-body {
-    font-family: 'Open Sans', sans-serif; /* Modern, readable font */
-    line-height: 1.6; /* Improved line spacing */
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4; /* Light grey background */
-    color: #333; /* Dark grey text */
-}
-
+/* ============================ Header Styles ============================ */
 header {
     background: #4a0072;
     color: #ffffff;
@@ -47,6 +61,7 @@ header p {
     font-size: 1.25em;
 }
 
+/* ============================ Navigation Styles ============================ */
 nav {
     text-align: center;
     margin-top: 1em;
@@ -56,124 +71,157 @@ nav ul {
     padding: 0;
     margin: 0;
     list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 
 nav ul li {
-    display: inline;
-    margin-right: 20px;
+    margin-right: 20px; /* Adjusted margin */
 }
 
 nav ul li a {
     color: #ffffff;
     text-decoration: none;
     font-size: 1.2em;
-    padding: 10px 20px; /* Larger clickable area */
-    transition: background 0.3s ease; /* Smooth transition */
+    padding: 10px 20px;
+    transition: color 0.3s ease, background-color 0.3s ease; /* Smooth transition */
 }
 
-nav ul li a:hover {
+nav ul li a:hover, nav ul li a:focus {
     color: #eeeeee;
-    background: #ddd; /* Background on hover */
+    background: #ddd;
+    text-decoration: underline; /* Added underline on hover */
 }
 
+/* ============================ Section Styles ============================ */
 section {
-    padding: 20px; /* More spacing around sections */
-
-}
-
-#projects {
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center the child elements */
+    align-items: center;
 }
 
-
+/* ============================ Project Styles ============================ */
 #projects-title {
-    text-align: center;
+    text-align: center; /* Centering the title */
     font-size: 2.5em;
     margin: 20px 0;
     color: #4a0072;
 }
 
+/* For Centering Projects Section */
+#projects {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centering items vertically */
+}
+
 .project {
     background: #ffffff;
-    margin: 15px 0;
+    margin: 15px auto;
     padding: 15px;
     border: 1px solid #dddddd;
-    display: flex;
-    align-items: center;
     box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.1);
     transition: box-shadow 0.3s ease-in-out;
     max-width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 250px; /* Adjust as needed */
+    text-align: center;
 }
 
 .project-image {
     max-width: 150px;
     border-radius: 8px;
-    margin-right: 15px;
 }
 
 .project-content {
     text-align: center;
     width: 100%;
     font-size: .8em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .project-title {
-    margin: 10px 0;
     font-size: 2em;
+    margin: 10px 0;
 }
 
-.project-description,
-.project-languages {
+.project-description, .project-languages {
     margin: 5px 0;
 }
 
 .project:hover {
     box-shadow: 0px 6px 8px 0px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* ============================ Container Styles ============================ */
+.container {
+    background: #ffffff;
+    margin: 15px auto;
+    padding: 15px;
+    border: 1px solid #dddddd;
+    box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out;
+    max-width: 80%;
+    text-align: center;
+}
+
+.container:hover {
+    box-shadow: 0px 6px 8px 0px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 
+/* ============================ Footer Styles ============================ */
 footer {
     background: #4a0072;
     color: #ffffff;
     padding: 20px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer#contact h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #ffffff;
+    text-shadow: 1px 1px #000000, 2px 2px #000000, 3px 3px #000000;
 }
 
 #contact-form {
     max-width: 500px;
-    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 label, input, textarea {
-    display: block;
     width: 100%;
     margin-bottom: 10px;
     padding: 10px;
-    box-sizing: border-box;
-}
-
-footer#contact h2 {
-    text-align: center;
-    font-size: 2.5em;
-    margin-bottom: 20px;
-    color: #ffffff; /* Changed to white for better contrast */
-    text-shadow: 1px 1px #000000, 2px 2px #000000, 3px 3px #000000; /* Creating 3D effect */
-    position: relative;
 }
 
 .btn-light {
     background-color: #ffffff;
     color: #4a0072;
     border: 2px solid #4a0072;
-    padding: 15px 30px; /* Increased padding to enlarge the button */
+    padding: 15px 30px;
     border-radius: 25px;
     box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     transition: all 0.3s ease-in-out;
-    outline: none;
-    font-size: 1.2em; /* Optionally increase font size */
+    font-size: 1.2em;
     font-weight: 600;
 }
 
@@ -189,16 +237,6 @@ footer#contact h2 {
     transform: scale(1);
 }
 
-
-
-
-.project:hover {
-    transform: scale(1.05);
-    transition: transform 0.3s ease;
-    box-shadow: 0px 6px 8px 0px rgba(0, 0, 0, 0.2); /* Example shadow on hover, adjust as needed */
-
-}
-
 .form-step {
     display: none;
 }
@@ -207,38 +245,22 @@ footer#contact h2 {
     display: block;
 }
 
-
-/* Responsive Styles */
-@media only screen and (max-width: 768px) {
-    header h1 {
-        font-size: 2em;
-    }
-
-    header p, nav ul li a {
-        font-size: 1em;
-    }
-
-    #projects-title {
-        font-size: 2em;
-        margin-top: 15px;
-        margin-bottom: 8px;
-    }
-
-    .project-title {
-        font-size: 1.5em;
-    }
-
-    .project-description, .project-languages {
-        font-size: 1em;
-    }
-
-    .project-image {
-        max-width: 100%;
-    }
+#contact-form {
+    max-width: 500px;
+    margin:auto;   
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centering items vertically */
 }
 
-@media (max-width: 600px) {
-    nav ul {
-        flex-direction: column; /* Stack menu items vertically on small screens */
-    }
+/* ============================ Responsive Styles ============================ */
+@media only screen and (max-width: 768px) {
+    header h1 { font-size: 2em; }
+    header p, nav ul li a { font-size: 1em; }
+    #projects-title { font-size: 2em; margin-top: 15px; margin-bottom: 8px; }
+    .project-title { font-size: 1.5em; }
+    .project-description, .project-languages { font-size: 1em; }
+    .project-image { max-width: 100%; }
+    nav ul { flex-direction: column; }
+    nav ul li {margin-right: 0; /* Removed right margin for small screens */}
 }

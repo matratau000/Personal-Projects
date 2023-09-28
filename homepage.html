@@ -31,23 +31,43 @@
     </header>
 
     <script>
-        $(document).ready(function() {
-            AOS.init();
+    $(document).ready(function() {
+        AOS.init();
 
-            $('nav a').click(function(e) {
-                e.preventDefault();
-                var href = $(this).attr('href');
-                var offset = $(href).offset().top - $('header').outerHeight(true);
-                $('html, body').animate({
-                    scrollTop: offset
-                }, 1000);
-            });
+        $('nav a').click(function(e) {
+            e.preventDefault();
+            var href = $(this).attr('href');
+            var offset = $(href).offset().top - $('header').outerHeight(true);
+            $('html, body').animate({
+                scrollTop: offset
+            }, 1000);
         });
-    </script>
+
+        // Initialize the first step as active
+        $('#step-1').addClass('active');
+        
+        $('.btn-next').click(function() {
+            var currentStep = $(this).closest('.form-step'); // Find the parent form step of the clicked button
+            var nextStepNum = $(this).data('next'); // Get the next step number
+            currentStep.removeClass('active'); // Hide the current step
+            $('#step-' + nextStepNum).addClass('active'); // Show the next step
+        });
+    });
+</script>
+<script>
+document.addEventListener('mousemove', function(e) {
+    let x = e.clientX / window.innerWidth * 100;
+    let y = e.clientY / window.innerHeight * 100;
+    document.body.style.setProperty('--x', x + '%');
+    document.body.style.setProperty('--y', y + '%');
+});
+</script>
+
 </body>
 
 <body>
     <section id="about" data-aos="fade-up" data-aos-duration="1000">
+    <div class="container">
     <h2>About Me</h2>
     <p>
         Hello! I'm [Your Name], a passionate and dedicated software engineer with a love for innovative technology and creative solutions. I hold a [Your Degree] in Computer Science from [Your University], where I honed my skills in [mention a few skills, e.g., software development, data analysis, etc.], and developed a keen interest in [mention a field or technology, e.g., Artificial Intelligence, Web Development, etc.].
@@ -65,7 +85,10 @@
         I'm excited to [mention your career aspirations or goals, e.g., contribute to innovative projects, collaborate with like-minded individuals, etc.], and I am currently [mention your current status or focus, e.g., exploring new opportunities, working on personal projects, etc.].
     </p>
 </section>
+    </div>
+        <div class="container">
 <h2 id="projects-title">My Projects</h2>
+        </div>
  <section id="projects" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
     <div class="project">
         <img src="stock_market_project.png" alt="Stock Market Prediction Preview" class="project-image">
@@ -139,10 +162,10 @@
 </section>
 
 
-    <footer id="contact" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+    <footer id="contact" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200" >
     <h2>Contact Me</h2>
     <form id="contact-form" class="needs-validation" novalidate>
-        <div class="form-step" id="step-1">
+        <div <div class="form-step active" id="step-1">
             <label for="name" class="form-label">Please enter your NAME and click Next when done:</label>
             <input type="text" id="name" name="name" class="form-control" required>
 <button type="button" class="btn btn-light mt-2 btn-next" data-next="2">Next</button>
