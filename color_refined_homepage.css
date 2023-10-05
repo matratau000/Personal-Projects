@@ -185,7 +185,20 @@ header {
     background: #4a0072;
     color: #ffffff;
     text-align: center;
+    flex-direction: column;
+    align-items: center;
     padding: 1.5em 0;
+    position: relative;
+    overflow: hidden; /* Ensure video doesn't overflow the header boundaries */
+
+}
+
+header video {
+    width: 80%; /* Adjust based on desired size */
+    max-width: 500px;
+    height: auto;
+    z-index: 1;
+    margin-bottom: 20px; /* Spacing between video and name */
 }
 
 header h1 {
@@ -197,7 +210,34 @@ header p {
     font-size: 1.25em;
 }
 
+/* Increase the size of the header text */
+.header-text-large {
+    font-size: 24px;  /* Adjust as needed */
+    margin-bottom: 20px; /* Space below the text */
+}
+
+/* Style for the header image */
+.header-image {
+    width: 100%;  /* take full width of the header */
+    max-height: 200px;  /* adjust as needed */
+    object-fit: cover;  /* maintain aspect ratio */
+}
+
+.name-animation, .header-text-large, .navbar-top-right {
+    position: relative; /* Ensure these elements are above the video */
+    z-index: 1;
+}
+
 /* ============================ Navigation Styles ============================ */
+.navbar-top-right {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
 nav {
     text-align: center;
     margin-top: 1em;
@@ -407,5 +447,81 @@ footer#contact h2 {
     top: 0;
     left: 0;
     z-index: 1;
+}
+
+
+html, body {
+    width: 100%;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+* {
+    box-sizing: border-box;  /* Ensure padding and border are included in the element's total width */
+}
+
+/* Soft gradient background */
+body {
+    background: linear-gradient(135deg, #f0f1f6 0%, #dfe2e8 100%);
+}
+
+/* Navigation links with subtle shadows */
+.navbar-top-right a {
+    background: #007BFF;
+    padding: 10px 15px;
+    border-radius: 15px;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+
+/* Buttons with similar shadow effects */
+.btn {
+    border-radius: 10px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease-in-out;
+    background-color: #007BFF; /* Apple-like blue color */
+    color: #FFFFFF; /* White text color */
+    border: none;
+    padding: 10px 20px; /* Some padding for better appearance */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.btn:hover {
+    background-color: #0056b3; /* Slightly darker blue on hover */
+    transform: translateY(-1px); /* Reduced upward lift on hover */
+}
+
+.btn:active {
+    background-color: #004080; /* Darker blue when pressed */
+    transform: translateY(0px); /* No downward movement on active state */
+}
+
+
+/* Apple-like typography */
+body, h1, h2, h3, p, a, button {
+    font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+}
+
+/* Consistent off-white background */
+body {
+    background: #FAFAFA;
+}
+
+
+/* Adjusted header background to a light gray */
+header {
+    background: #F5F5F5;
+    padding: 20px;
+    border-bottom: 1px solid #E0E0E0; /* Optional: Adds a subtle border at the bottom of the header */
+}
+
+
+/* Adjusted header text color for better readability */
+.name-text, .header-text-large {
+    fill: #333; /* For the SVG text */
+    color: #333; /* For the regular text */
 }
 

@@ -1,0 +1,546 @@
+/* ============================ General Styles ============================ */
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: radial-gradient(circle at var(--x) var(--y), #4a0072, #ffffff);
+}
+
+header, footer {
+    background: rgba(74, 0, 114, 0.9);
+    backdrop-filter: blur(10px);
+    transition: background 0.3s ease;
+}
+
+header:hover, footer:hover {
+    background: rgba(74, 0, 114, 1);
+}
+
+header h1, header p, footer {
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* ============================ Animation Keyframes ============================ */
+@keyframes draw {
+    0%, 50% {
+        stroke-dashoffset: 100%;
+        fill-opacity: 0;
+    }
+    100% {
+        stroke-dashoffset: 0;
+        fill-opacity: 1;
+    }
+}
+
+.name-text {
+    stroke-dasharray: 100%;
+    animation: draw 5s forwards;
+}
+
+/* ============================ Orbit Container Styles ============================ */
+#orbit-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: auto;
+}
+
+#projects-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: auto; /* Allow the width to adjust to the content. */
+    text-align: center;
+    font-size: 2em; /* Adjust according to your preference. */
+    color: white; /* Adjust according to your preference. */
+    font-weight: bold; /* Makes the text bold. */
+    text-shadow: 2px 2px 4px #000000; /* Optional: Adds a subtle shadow to the text. */
+    z-index: 1;
+}
+
+.orbit {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    text-align: center;
+    z-index: 2;
+}
+
+#html5-icon {
+    animation-name: orbit-html5;
+    animation-duration: 10s;
+}
+
+#js-icon {
+    animation-name: orbit-js;
+    animation-duration: 15s;
+}
+
+#ruby-icon {
+    animation-name: orbit-ruby;
+    animation-duration: 13s;
+}
+
+#python-icon {
+    animation-name: orbit-python;
+    animation-duration: 12s;
+}
+
+#java-icon {
+    animation-name: orbit-java;
+    animation-duration: 8s;
+}
+
+#css3-icon {
+    animation-name: orbit-css3;
+    animation-duration: 14s;
+}
+
+#nodejs-icon {
+    animation-name: orbit-nodejs;
+    animation-duration: 9s;
+}
+
+#react-icon {
+    animation-name: orbit-react;
+    animation-duration: 11s;
+}
+
+#angular-icon {
+    animation-name: orbit-angular;
+    animation-duration: 16s;
+}
+
+@keyframes orbit-html5 {
+    0% { transform: rotate(0deg) translateX(100px) rotate(0deg); }
+    100% { transform: rotate(360deg) translateX(100px) rotate(-360deg); }
+}
+
+@keyframes orbit-js {
+    0% { transform: rotate(30deg) translateX(80px) rotate(-30deg); }
+    100% { transform: rotate(390deg) translateX(80px) rotate(-390deg); }
+}
+
+@keyframes orbit-ruby {
+    0% { transform: rotate(60deg) translateX(120px) rotate(-60deg); }
+    100% { transform: rotate(420deg) translateX(120px) rotate(-420deg); }
+}
+
+@keyframes orbit-python {
+    /* Different Starting Point and Rotation */
+    0% { transform: rotate(90deg) translateX(110px) rotate(-90deg); }
+    100% { transform: rotate(450deg) translateX(110px) rotate(-450deg); }
+}
+
+@keyframes orbit-java {
+    /* Different Starting Point and Rotation */
+    0% { transform: rotate(120deg) translateX(90px) rotate(-120deg); }
+    100% { transform: rotate(480deg) translateX(90px) rotate(-480deg); }
+}
+
+@keyframes orbit-css3 {
+    /* Different Starting Point and Rotation */
+    0% { transform: rotate(150deg) translateX(70px) rotate(-150deg); }
+    100% { transform: rotate(510deg) translateX(70px) rotate(-510deg); }
+}
+
+@keyframes orbit-nodejs {
+    /* Different Starting Point and Rotation */
+    0% { transform: rotate(180deg) translateX(130px) rotate(-180deg); }
+    100% { transform: rotate(540deg) translateX(130px) rotate(-540deg); }
+}
+
+@keyframes orbit-react {
+    /* Different Starting Point and Rotation */
+    0% { transform: rotate(210deg) translateX(100px) rotate(-210deg); }
+    100% { transform: rotate(570deg) translateX(100px) rotate(-570deg); }
+}
+
+@keyframes orbit-angular {
+    /* Different Starting Point and Rotation */
+    0% { transform: rotate(240deg) translateX(80px) rotate(-240deg); }
+    100% { transform: rotate(600deg) translateX(80px) rotate(-600deg); }
+}
+
+@media (max-width: 600px) {
+    #projects-title {
+        font-size: 1.5em; /* Adjust as necessary. */
+    }
+}
+
+/* ============================ Header Styles ============================ */
+header {
+    background: #4a0072;
+    color: #ffffff;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5em 0;
+    position: relative;
+    overflow: hidden; /* Ensure video doesn't overflow the header boundaries */
+
+}
+
+header video {
+    width: 80%; /* Adjust based on desired size */
+    max-width: 500px;
+    height: auto;
+    z-index: 1;
+    margin-bottom: 20px; /* Spacing between video and name */
+}
+
+header h1 {
+    font-size: 2.5em;
+    margin-bottom: 0.5em;
+}
+
+header p {
+    font-size: 1.25em;
+}
+
+/* Increase the size of the header text */
+.header-text-large {
+    font-size: 24px;  /* Adjust as needed */
+    margin-bottom: 20px; /* Space below the text */
+}
+
+/* Style for the header image */
+.header-image {
+    width: 100%;  /* take full width of the header */
+    max-height: 200px;  /* adjust as needed */
+    object-fit: cover;  /* maintain aspect ratio */
+}
+
+.name-animation, .header-text-large, .navbar-top-right {
+    position: relative; /* Ensure these elements are above the video */
+    z-index: 1;
+}
+
+/* ============================ Navigation Styles ============================ */
+.navbar-top-right {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+nav {
+    text-align: center;
+    margin-top: 1em;
+}
+
+nav ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.2em;
+    padding: 10px 20px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+nav ul li a:hover, nav ul li a:focus {
+    color: #eeeeee;
+    background: #910202;
+    text-decoration: underline;
+}
+
+/* ============================ Section Styles ============================ */
+section {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* ============================ Project Styles ============================ */
+#projects {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.project {
+    background: #ffffff;
+    margin: 15px auto;
+    padding: 15px;
+    border: 1px solid #dddddd;
+    box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease;
+    max-width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 250px;
+    text-align: center;
+}
+
+.project-image {
+    max-width: 150px;
+    border-radius: 8px;
+}
+
+.project-content {
+    text-align: center;
+    width: 100%;
+    font-size: .8em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.project-title {
+    font-size: 2em;
+    margin: 10px 0;
+}
+
+.project-description, .project-languages {
+    margin: 5px 0;
+}
+
+.project:hover {
+    box-shadow: 0px 6px 8px 0px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+}
+
+/* ============================ Container Styles ============================ */
+.container {
+    background: #ffffff;
+    margin: 15px auto;
+    padding: 15px;
+    border: 1px solid #dddddd;
+    box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease;
+    max-width: 80%;
+    text-align: center;
+}
+
+.container:hover {
+    box-shadow: 0px 6px 8px 0px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+}
+
+#projects-container {
+    max-width: 25%;
+    margin: auto;
+}
+
+/* ============================ Footer Styles ============================ */
+footer {
+    background: #4a0072;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Helvetica Neue', sans-serif; /* Modern, clean font */
+}
+
+footer#contact h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #ffffff;
+    text-shadow: 1px 1px #000000, 2px 2px #000000, 3px 3px #000000;
+}
+
+.form-step {
+    display: none; /* Initially hide all steps */
+    transition: opacity 0.5s ease-in-out; /* Smooth transition */
+}
+
+.form-step.active {
+    display: block; /* Show step when it has the 'active' class */
+    opacity: 1;
+}
+
+#contact-form {
+    background: rgba(255, 255, 255, 0.1); /* Slightly white background */
+    padding: 15px;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+#contact-form input[type="text"],
+#contact-form input[type="email"],
+#contact-form textarea {
+    max-width: 300px;
+    width: 100%;
+    display: block;
+    margin: auto;
+    padding: 10px;
+    border: none;
+    border-radius: 5px; /* Slightly rounded corners on inputs */
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1); /* Subtle shadow on inputs */
+    outline: none;
+    transition: box-shadow 0.3s ease-in-out; /* Smooth transition */
+}
+
+#contact-form input[type="text"]:focus,
+#contact-form input[type="email"]:focus,
+#contact-form textarea:focus {
+    box-shadow: 0px 0px 10px 0px rgba(74, 0, 114, 0.5); /* Highlight on focus with purple color */
+}
+
+#contact-form button {
+    background: #ffffff;
+    color: #4a0072;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out; /* Smooth transition */
+}
+
+#contact-form button:hover {
+    background: #4a0072;
+    color: #ffffff;
+}
+
+
+/* ============================ Orbit Styles and Animations ============================ */
+@keyframes flash {
+    0%, 100% {
+        stroke-opacity: 1;
+    }
+    50% {
+        stroke-opacity: 0;
+    }
+}
+
+#connections line {
+    animation: flash 3s infinite;
+    stroke: lightgrey; /* Set the stroke color to black */
+
+}
+
+#connections {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+
+html, body {
+    width: 100%;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+* {
+    box-sizing: border-box;  /* Ensure padding and border are included in the element's total width */
+}
+
+/* Soft gradient background */
+body {
+    background: linear-gradient(135deg, #f0f1f6 0%, #dfe2e8 100%);
+}
+
+/* Navigation links with subtle shadows */
+.navbar-top-right a {
+    background: #e0e5ec;
+    padding: 10px 15px;
+    border-radius: 15px;
+    box-shadow:  8px 8px 16px #b8b9be, -8px -8px 16px #ffffff;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.navbar-top-right a:hover {
+    box-shadow: inset 5px 5px 10px #b8b9be, inset -5px -5px 10px #ffffff;
+}
+
+/* Buttons with similar shadow effects */
+button {
+    background: #e0e5ec;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 15px;
+    cursor: pointer;
+    box-shadow:  8px 8px 16px #b8b9be, -8px -8px 16px #ffffff;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+button:hover {
+    box-shadow: inset 5px 5px 10px #b8b9be, inset -5px -5px 10px #ffffff;
+}
+
+/* Apple-like typography */
+body, h1, h2, h3, p, a, button {
+    font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+}
+
+/* Consistent off-white background */
+body {
+    background: #FAFAFA;
+}
+
+/* Refined button styling */
+button {
+    background: #E1E1E1;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    font-weight: 600; /* Making the text a bit bolder */
+}
+
+button:hover {
+    background: #D0D0D0;
+    box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+button:active {
+    box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Adjusted header background to a light gray */
+header {
+    background: #F5F5F5;
+    padding: 20px;
+    border-bottom: 1px solid #E0E0E0; /* Optional: Adds a subtle border at the bottom of the header */
+}
+
+/* Overriding Bootstrap's button styles for a more Apple-like design */
+.btn {
+    border-radius: 10px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn:hover {
+    transform: translateY(-2px); /* Slight upward lift on hover */
+}
+
+.btn:active {
+    transform: translateY(1px); /* Slight downward press on active */
+}
