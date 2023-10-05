@@ -7,7 +7,13 @@ html, body {
     font-family: 'Open Sans', sans-serif;
     line-height: 1.6;
     color: #333;
-    background: radial-gradient(circle at var(--x) var(--y), #4a0072, #ffffff);
+    background: radial-gradient(circle at var(--x) var(--y), #6a4a7b, #ffffff);
+}
+
+body {
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 header, footer {
@@ -17,7 +23,7 @@ header, footer {
 }
 
 header:hover, footer:hover {
-    background: rgba(74, 0, 114, 1);
+    background: lightgray;
 }
 
 header h1, header p, footer {
@@ -182,7 +188,7 @@ header h1, header p, footer {
 
 /* ============================ Header Styles ============================ */
 header {
-    background: #4a0072;
+    background: white;
     color: #ffffff;
     text-align: center;
     flex-direction: column;
