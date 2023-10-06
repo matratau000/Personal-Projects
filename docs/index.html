@@ -104,7 +104,32 @@
 
     <script>
     $(document).ready(function() {
-        AOS.init();
+         AOS.init();
+
+    let lastScrollTop = 0;
+    let lastTime = Date.now();
+
+    $(window).on('scroll', function() {
+        let currentTime = Date.now();
+        let timeDifference = currentTime - lastTime;
+
+        let currentScrollTop = $(this).scrollTop();
+        let scrollDifference = Math.abs(currentScrollTop - lastScrollTop);
+
+        let velocity = scrollDifference / timeDifference;  // Pixels per millisecond
+
+        // Map the velocity to a suitable duration for the animation
+        // Here's an example mapping: the faster the scroll, the shorter the duration
+        let animationDuration = Math.max(300, 2000 - (velocity * 2000));
+
+        // Update AOS settings
+        AOS.refreshHard();
+
+        $('.aos-animate').css('transition-duration', animationDuration + 'ms');
+
+        lastScrollTop = currentScrollTop;
+        lastTime = currentTime;
+    });
 
          function handleFormSteps() {
         $('.form-step').each(function() {
@@ -143,14 +168,7 @@
 
     });
 </script>
-<script>
-document.addEventListener('mousemove', function(e) {
-    let x = e.clientX / window.innerWidth * 100;
-    let y = e.clientY / window.innerHeight * 100;
-    document.body.style.setProperty('--x', x + '%');
-    document.body.style.setProperty('--y', y + '%');
-});
-</script>
+
 
     <section id="about" data-aos="fade-up" data-aos-duration="1000">
     <div class="container">
