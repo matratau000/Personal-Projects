@@ -14,35 +14,8 @@ body {
     overflow-y: hidden;
 }
 
-header {
-    backdrop-filter: blur(10px);
-    transition: background 0.3s ease;
-}
-
-header:hover {
-    background: black;
-}
-
 header h1, header p, footer {
-    color: white;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-}
-
-/* ============================ Animation Keyframes ============================ */
-@keyframes draw {
-    0%, 50% {
-        stroke-dashoffset: 100%;
-        fill-opacity: 0;
-    }
-    100% {
-        stroke-dashoffset: 0;
-        fill-opacity: 1;
-    }
-}
-
-.name-text {
-    stroke-dasharray: 100%;
-    animation: draw 5s forwards;
 }
 
 /* ============================ Orbit Container Styles ============================ */
@@ -76,7 +49,7 @@ header h1, header p, footer {
     transform: translate(-50%, -50%);
     animation-duration: 10s;
     animation-iteration-count: infinite;
-    animation-timing-function: linear;
+    animation-timing-function: ease-in-out;
     text-align: center;
     z-index: 2;
 }
@@ -185,8 +158,6 @@ header h1, header p, footer {
 
 /* ============================ Header Styles ============================ */
 header {
-    background: white;
-    color: white;
     text-align: center;
     flex-direction: column;
     align-items: center;
@@ -211,7 +182,6 @@ header h1 {
 
 header p {
     font-size: 1.25em;
-    color: white;
 }
 
 /* Increase the size of the header text */
@@ -518,16 +488,21 @@ header {
 
 
 /* Adjusted header text color for better readability */
-.name-text, .header-text-large {
-    fill: #333; /* For the SVG text */
-    color: #333; /* For the regular text */
+.header-text-large {
+    fill: black; /* For the SVG text */
+    color: black; /* For the regular text */
 }
 
 
 .header-container {
+    width: 100%; /* Ensure the container takes up the full width of its parent */
+    max-width: 100%; /* Ensure it doesn't exceed the viewport width */
+    overflow: hidden; /* Hide any overflowing content */
+    text-align: center; /* Center the content horizontally */
     display: flex;
-    align-items: center; /* Vertical centering */
-    justify-content: flex-start; /* Maximizes space between video and title+subtitle */
+    flex-direction: column;
+    justify-content: center; /* Center the content vertically */
+    align-items: center; /* Center the content horizontally in case of flexbox */
 }
 
 .header-video {
@@ -536,12 +511,11 @@ header {
     margin-right: 5%; /* Spacing between video and title+subtitle */
     clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%); /* Unique shape */
     opacity: 0; /* Start with invisible video */
-    animation: videoFadeIn 2s forwards; /* Fade-in animation */
+    animation: videoFadeIn 2s forwards, pulsate 2s infinite, floatEffect 4s infinite; /* Multiple animations */
 }
 
 .header-content {
     z-index: 10;
-    color: #000;
     overflow: visible;
     width: 70%; /* Taking the remaining space */
     display: flex;
@@ -554,4 +528,175 @@ header {
     to {
         opacity: 1;
     }
+}
+
+@keyframes pulsate {
+    0%, 100% { transform: scale(100); }
+    50% { transform: scale(1000.05); }
+}
+
+
+@keyframes floatEffect {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0); }
+}
+
+
+
+/* Importing the Oswald font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
+
+.header-text-small {
+    font-size: 5vw;
+}
+
+/* Default size for larger screens */
+.header-text-small {
+    font-size: 40px; /* Adjust based on what looks best on a desktop */
+    font-family: 'Oswald', sans-serif; /* Use Oswald font */
+}
+
+.header-text-large {
+    font-size: 3vw; /* Adjust based on what looks best on a desktop */
+}
+
+/* Adjustments for medium screens */
+@media (max-width: 1200px) {
+    .header-text-small {
+        font-size: 4vw; 
+    }
+    .header-text-large {
+        font-size: 2.5vw;
+    }
+}
+
+/* Adjustments for small screens */
+@media (max-width: 800px) {
+    .header-text-small {
+        font-size: 3.5vw;
+    }
+    .header-text-large {
+        font-size: 2.2vw;
+    }
+}
+
+/* Adjustments for very small screens */
+@media (max-width: 500px) {
+    .header-text-small {
+        font-size: 3vw;
+    }
+    .header-text-large {
+        font-size: 2vw;
+    }
+}
+
+
+
+@keyframes jiggle {
+    10%, 90% {
+        transform: translateY(-1px);
+    }
+    20%, 80% {
+        transform: translateY(2px);
+    }
+    30%, 70%, 100% {
+        transform: translateY(0);
+    }
+    40%, 60% {
+        transform: translateY(-2px);
+    }
+    50% {
+        transform: translateY(1px);
+    }
+}
+
+.header-text-small span, .header-text-large span {
+    display: inline-block;  /* to apply transform */
+    animation: jiggle 0.6s ease forwards;
+}
+
+
+/* Calculating the delay for each letter in name */
+.header-text-small span:nth-child(2) { animation-delay: 0.2s; }
+.header-text-small span:nth-child(3) { animation-delay: 0.3s; }
+.header-text-small span:nth-child(4) { animation-delay: 0.4s; }
+.header-text-small span:nth-child(5) { animation-delay: 0.5s; }
+.header-text-small span:nth-child(1) { animation-delay: 0.1s; }
+.header-text-small span:nth-child(6) { animation-delay: 0.6s; }
+.header-text-small span:nth-child(7) { animation-delay: 0.7s; }
+.header-text-small span:nth-child(8) { animation-delay: 0.8s; }
+.header-text-small span:nth-child(9) { animation-delay: 0.9s; }
+.header-text-small span:nth-child(10) { animation-delay: 1s; }
+.header-text-small span:nth-child(11) { animation-delay: 1.1s; }
+.header-text-small span:nth-child(12) { animation-delay: 1.2s; }
+.header-text-small span:nth-child(13) { animation-delay: 1.3s; }
+.header-text-small span:nth-child(14) { animation-delay: 1.4s; }
+.header-text-small span:nth-child(15) { animation-delay: 1.5s; }
+.header-text-small span:nth-child(16) { animation-delay: 1.6s; }
+
+/* Calculating the delay for each letter in role */
+.header-text-large span:nth-child(1) { animation-delay: 1.6s; }
+.header-text-large span:nth-child(2) { animation-delay: 1.7s; }
+.header-text-large span:nth-child(3) { animation-delay: 1.8s; }
+.header-text-large span:nth-child(4) { animation-delay: 1.9s; }
+.header-text-large span:nth-child(5) { animation-delay: 2s; }
+.header-text-large span:nth-child(6) { animation-delay: 2.1s; }
+.header-text-large span:nth-child(7) { animation-delay: 2.2s; }
+.header-text-large span:nth-child(8) { animation-delay: 2.3s; }
+.header-text-large span:nth-child(9) { animation-delay: 2.4s; }
+.header-text-large span:nth-child(10) { animation-delay: 2.5s; }
+.header-text-large span:nth-child(11) { animation-delay: 2.6s; }
+.header-text-large span:nth-child(12) { animation-delay: 2.7s; }
+.header-text-large span:nth-child(13) { animation-delay: 2.8s; }
+.header-text-large span:nth-child(14) { animation-delay: 2.9s; }
+.header-text-large span:nth-child(15) { animation-delay: 3s; }
+.header-text-large span:nth-child(16) { animation-delay: 3.1s; }
+.header-text-large span:nth-child(17) { animation-delay: 3.2s; }
+.header-text-large span:nth-child(18) { animation-delay: 3.3s; }
+.header-text-large span:nth-child(19) { animation-delay: 3.4s; }
+.header-text-large span:nth-child(20) { animation-delay: 3.5s; }
+.header-text-large span:nth-child(21) { animation-delay: 3.6s; }
+.header-text-large span:nth-child(22) { animation-delay: 3.7s; }
+.header-text-large span:nth-child(23) { animation-delay: 3.8s; }
+.header-text-large span:nth-child(24) { animation-delay: 3.9s; }
+.header-text-large span:nth-child(25) { animation-delay: 4s; }
+.header-text-large span:nth-child(26) { animation-delay: 4.1s; }
+.header-text-large span:nth-child(27) { animation-delay: 4.2s; }
+.header-text-large span:nth-child(28) { animation-delay: 4.3s; }
+.header-text-large span:nth-child(29) { animation-delay: 4.4s; }
+.header-text-large span:nth-child(30) { animation-delay: 4.5s; }
+.header-text-large span:nth-child(31) { animation-delay: 4.6s; }
+.header-text-large span:nth-child(32) { animation-delay: 4.7s; }
+.header-text-large span:nth-child(33) { animation-delay: 4.8s; }
+.header-text-large span:nth-child(34) { animation-delay: 4.9s; }
+.header-text-large span:nth-child(35) { animation-delay: 5s; }
+.header-text-large span:nth-child(36) { animation-delay: 5.1s; }
+.header-text-large span:nth-child(37) { animation-delay: 5.2s; }
+.header-text-large span:nth-child(38) { animation-delay: 5.3s; }
+.header-text-large span:nth-child(39) { animation-delay: 5.4s; }
+.header-text-large span:nth-child(40) { animation-delay: 5.5s; }
+.header-text-large span:nth-child(41) { animation-delay: 5.6s; }
+
+
+
+/* Set a minimum font size for very small screens */
+@media (max-width: 400px) {
+    .name-text, .header-text-large {
+        font-size: 20px; /* Adjust as needed */
+    }
+}
+
+/* Set a maximum font size for larger screens */
+@media (min-width: 1200px) {
+    .name-text, .header-text-large {
+        font-size: 48px; /* Adjust as needed */
+    }
+}
+
+.name-text, .header-text-large {
+    white-space: nowrap;
+    overflow: hidden; /* Hide overflow to ensure text doesn't extend out of its container */
+    text-overflow: ellipsis; /* Optional: display '...' for overflowing text */
+    display: flexbox;
 }
