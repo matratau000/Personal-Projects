@@ -18,6 +18,39 @@ header h1, header p, footer {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
+/* For the expand/collapse button */
+#about-btn {
+    cursor: pointer;
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px 0;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+#about-btn:hover {
+    background-color: #555;
+}
+
+/* Initially hide the about text */
+#about-text {
+    display: none;
+    transition: max-height 0.3s ease-in-out, opacity 0.2s ease-in-out;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+}
+
+/* When clicked to expand, the text will appear */
+#about-toggle:checked ~ #about-text {
+    display: block;
+    max-height: 2000px; /* Sufficiently large value */
+    opacity: 1;
+}
+
+
 /* ============================ Orbit Container Styles ============================ */
 #orbit-container {
     position: relative;
@@ -157,6 +190,30 @@ header h1, header p, footer {
 }
 
 /* ============================ Header Styles ============================ */
+/* Adjusting for the responsive header */
+header h1 {
+    font-size: 2em; /* Base size for larger screens */
+}
+
+@media (max-width: 992px) {
+    header h1 {
+        font-size: 1.5em;
+    }
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.2em;
+    }
+}
+
+@media (max-width: 576px) {
+    header h1 {
+        font-size: 1em;
+    }
+}
+
+
 header {
     text-align: center;
     flex-direction: column;
@@ -192,45 +249,7 @@ header p {
 
 
 /* ============================ Navigation Styles ============================ */
-.navbar-top-right {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
-}
 
-nav {
-    text-align: center;
-    margin-top: 1em;
-}
-
-nav ul {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-}
-
-nav ul li {
-    margin-right: 20px;
-}
-
-nav ul li a {
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 1.2em;
-    padding: 10px 20px;
-    transition: color 0.3s ease, background-color 0.3s ease;
-}
-
-nav ul li a:hover, nav ul li a:focus {
-    color: #eeeeee;
-    background: black;
-}
 
 /* ============================ Section Styles ============================ */
 section {
@@ -240,59 +259,10 @@ section {
     align-items: center;
 }
 
-/* ============================ Project Styles ============================ */
-#projects {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
 
-.project {
-    background: #ffffff;
-    margin: 15px auto;
-    padding: 15px;
-    border: 1px solid #dddddd;
-    box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease;
-    max-width: 80%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 250px;
-    text-align: center;
-}
-
-.project-image {
-    max-width: 150px;
-    border-radius: 8px;
-}
-
-.project-content {
-    text-align: center;
-    width: 100%;
-    font-size: .8em;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.project-title {
-    font-size: 2em;
-    margin: 10px 0;
-}
-
-.project-description, .project-languages {
-    margin: 5px 0;
-}
-
-.project:hover {
-    box-shadow: 0px 6px 8px 0px rgba(0, 0, 0, 0.2);
-    transform: scale(1.05);
-}
 
 /* ============================ Container Styles ============================ */
-.container {
+.container1 {
     background: #ffffff;
     margin: 15px auto;
     padding: 15px;
@@ -303,15 +273,11 @@ section {
     text-align: center;
 }
 
-.container:hover {
+.container1:hover {
     box-shadow: 0px 6px 8px 0px rgba(0, 0, 0, 0.2);
     transform: scale(1.05);
 }
 
-#projects-container {
-    max-width: 25%;
-    margin: auto;
-}
 
 /* ============================ Footer Styles ============================ */
 footer {
@@ -423,22 +389,9 @@ html, body {
     overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
-* {
-    box-sizing: border-box;  /* Ensure padding and border are included in the element's total width */
-}
 
-/* Soft gradient background */
-body {
-    background: linear-gradient(135deg, #f0f1f6 0%, #dfe2e8 100%);
-}
 
 /* Navigation links with subtle shadows */
-.navbar-top-right a {
-    background: #007BFF;
-    padding: 10px 15px;
-    border-radius: 15px;
-    transition: box-shadow 0.3s ease-in-out;
-}
 
 
 /* Buttons with similar shadow effects */
@@ -510,8 +463,6 @@ header {
     height: auto;
     margin-right: 5%; /* Spacing between video and title+subtitle */
     clip-path: polygon(0 0, 100% 0, 85% 100%, 0% 100%); /* Unique shape */
-    opacity: 0; /* Start with invisible video */
-    animation: videoFadeIn 2s forwards, pulsate 2s infinite, floatEffect 4s infinite; /* Multiple animations */
 }
 
 .header-content {
@@ -523,26 +474,6 @@ header {
     align-items: center; /* Horizontal centering */
     justify-content: center; /* Vertical centering */
 }
-
-@keyframes videoFadeIn {
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes pulsate {
-    0%, 100% { transform: scale(100); }
-    50% { transform: scale(1000.05); }
-}
-
-
-@keyframes floatEffect {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-5px); }
-    100% { transform: translateY(0); }
-}
-
-
 
 /* Importing the Oswald font from Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
@@ -700,3 +631,143 @@ header {
     text-overflow: ellipsis; /* Optional: display '...' for overflowing text */
     display: flexbox;
 }
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #eeeeea;
+}
+
+.wrapper {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    height: 400px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: start;
+    flex-direction: row;
+}
+
+.card {
+    width: 80px; /* Adjusted initial width */
+    background-size: cover;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 1000px;
+    margin: 0 10px;
+    display: flex;
+    align-items: flex-end;
+    transition: .6s cubic-bezier(.28,-0.03,0,.99);
+    box-shadow: 0px 10px 30px -5px rgba(0,0,0,0.8);
+}
+
+.card > .row {
+    color: #333;  /* Dark color for better contrast */
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.icon-label .icon {
+    background: #223;
+    color: white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px;
+    z-index: 10;
+    position: absolute;
+    top: 80%; 
+    left: 1%;
+}
+
+.card > .row > .description {
+    z-index: 11; /* Make it display above the icon */
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+    height: 80px;
+    width: 520px;
+    transition-delay: .3s;
+    transition: all .3s ease;
+    height: 100px;  /* Increase if necessary */
+    transform: translateY(0);  /* Reset the vertical transform */
+    padding: 10px 20px;  /* Add some padding to prevent the text from touching the edges */
+    height: auto; /* Let the container adjust based on its content */
+    position: absolute;
+    bottom: auto;
+    left: auto;
+    right: 10px;
+    padding: 10px; /* Give it some padding so content isn't touching the edges */
+}
+
+.description p {
+    color: #333; /* Dark color for better contrast */
+    padding-top: 5px;
+}
+
+.description h4 {
+    text-transform: uppercase;
+    color: #333;  /* Dark color for better contrast */
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+input {
+    display: none;
+}
+
+input:checked + label {
+    width: 600px;
+}
+
+input:checked + label .description {
+    opacity: 1;  /* Displayed when checked */
+    transform: translateY(0);
+}
+
+.card[for="c1"] {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8));
+    background-image: url('./img1.jpg');
+}
+.card[for="c2"] {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8));
+    background-image: url('./img2.jpg');
+}
+.card[for="c3"] {
+    background-image: url('./img2.jpg');
+}
+.card[for="c4"] {
+    background-image: url('./img2.jpg');
+}
+
+.container, .cards-wrapper {
+    display: flex;
+    flex-direction: row; 
+    justify-content: start; 
+    flex-wrap: nowrap;  
+}
+
+.description p, .description h4 {
+    color: #FFFFFF;  /* White color for better visibility against dark overlay */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+
+
+
+
