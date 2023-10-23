@@ -1,0 +1,23 @@
+@keyframes flash {
+    0%, 100% {
+        stroke-opacity: 1;
+    }
+    50% {
+        stroke-opacity: 0;
+    }
+}
+
+#connections line {
+    animation: flash 3s infinite;
+    stroke: lightgrey; /* Set the stroke color to black */
+
+}
+
+#connections {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}

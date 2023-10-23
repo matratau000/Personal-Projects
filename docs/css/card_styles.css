@@ -38,12 +38,12 @@ body {
     margin: 0 10px;
     display: flex;
     align-items: flex-end;
-    transition: .6s cubic-bezier(.28,-0.03,0,.99);
-    box-shadow: 0px 10px 40px -5px rgba(0,0,0,0.5);  /* Modified for a more gradual shadow */
+    transition: .6s cubic-bezier(.28, -0.03, 0, .99);
+    box-shadow: 0 10px 40px -5px rgba(0, 0, 0, 0.5); /* Modified for a more gradual shadow */
 }
 
 .card > .row {
-    color: #333;  /* Dark color for better contrast */
+    color: #333; /* Dark color for better contrast */
     display: flex;
     flex-wrap: nowrap;
 }
@@ -78,7 +78,7 @@ body {
         left: 0;
         right: 0;
         bottom: 0;
-        background: rgba(0,0,0,0.7); /* semi-transparent black */
+        background: rgba(0, 0, 0, 0.7); /* semi-transparent black */
         opacity: 0;
         pointer-events: none; /* make it non-clickable */
         z-index: 5; /* overlay should be below the card but above everything else */
@@ -96,7 +96,6 @@ body {
         position: fixed;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%) scale(1.2); /* center the card on the screen */
         z-index: 10; /* card should be above the overlay */
     }
 

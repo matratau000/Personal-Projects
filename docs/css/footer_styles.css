@@ -19,7 +19,7 @@ footer#contact h2 {
 .form-label {
     font-size: 2em;
     margin-bottom: 20px;
-    color: light purple;
+    color: black;
 }
 
 .form-step {
@@ -35,7 +35,7 @@ footer#contact h2 {
 #contact-form {
     padding: 15px;
     border-radius: 10px; /* Rounded corners */
-    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2); /* Subtle shadow */
 }
 
 #contact-form input[type="text"],
@@ -48,7 +48,7 @@ footer#contact h2 {
     padding: 10px;
     border: none;
     border-radius: 5px; /* Slightly rounded corners on inputs */
-    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1); /* Subtle shadow on inputs */
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1); /* Subtle shadow on inputs */
     outline: none;
     transition: box-shadow 0.3s ease-in-out; /* Smooth transition */
 }
@@ -56,7 +56,7 @@ footer#contact h2 {
 #contact-form input[type="text"]:focus,
 #contact-form input[type="email"]:focus,
 #contact-form textarea:focus {
-    box-shadow: 0px 0px 10px 0px rgba(74, 0, 114, 0.5); /* Highlight on focus with purple color */
+    box-shadow: 0 0 10px 0 rgba(74, 0, 114, 0.5); /* Highlight on focus with purple color */
 }
 
 #contact-form button {

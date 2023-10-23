@@ -20,16 +20,15 @@ header h1 {
     }
 }
 
-
 header {
     text-align: center;
     flex-direction: column;
     align-items: center;
-    padding: 1.5em 0;
+    padding: 4em 0 1.5em; /* Adjusted top padding */
     position: relative;
-    overflow: hidden; /* Ensure video doesn't overflow the header boundaries */
-
+    overflow: hidden;
 }
+
 header h1 {
     font-size: 1.0em;
     margin-bottom: 0.5em;
@@ -39,8 +38,100 @@ header p {
     font-size: 1.0em;
 }
 
-/* Increase the size of the header text */
+.header-text-small {
+    font-size: 2em;
+    margin-bottom: 0.5em; /* Adjust as needed */
+}
+
 .header-text-large {
-    font-size: 5px;  /* Adjust as needed */
-    margin-bottom: 20px; /* Space below the text */
+    font-size: 3em;
+    margin-bottom: 0.5em; /* Adjust as needed */
+}
+
+html, body {
+    width: 100%;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+
+/* Navigation links with subtle shadows */
+
+
+/* Buttons with similar shadow effects */
+.btn {
+    border-radius: 10px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    transition: all 0.3s ease-in-out;
+    background-color: #007BFF; /* Apple-like blue color */
+    color: #FFFFFF; /* White text color */
+    border: none;
+    padding: 10px 20px; /* Some padding for better appearance */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.btn:hover {
+    background-color: #0056b3; /* Slightly darker blue on hover */
+    transform: translateY(-1px); /* Reduced upward lift on hover */
+}
+
+.btn:active {
+    background-color: #004080; /* Darker blue when pressed */
+    transform: translateY(0px); /* No downward movement on active state */
+}
+
+
+/* Apple-like typography */
+body, h1, h2, h3, p, a, button {
+    font-family: 'Avenir', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+}
+
+/* Consistent off-white background */
+body {
+    background: #FAFAFA;
+}
+
+
+/* Adjusted header background to a light gray */
+header {
+    background: #F5F5F5;
+    padding: 20px;
+    border-bottom: 1px solid #E0E0E0; /* Optional: Adds a subtle border at the bottom of the header */
+}
+
+
+/* Adjusted header text color for better readability */
+.header-text-large {
+    fill: black; /* For the SVG text */
+    color: black; /* For the regular text */
+}
+
+
+.header-container {
+    padding-top: 80px;
+    width: 100%; /* Ensure the container takes up the full width of its parent */
+    max-width: 100%; /* Ensure it doesn't exceed the viewport width */
+    overflow: hidden; /* Hide any overflowing content */
+    text-align: center; /* Center the content horizontally */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center the content vertically */
+    align-items: center; /* Center the content horizontally in case of flexbox */
+}
+
+.header-content {
+    z-index: 10;
+    overflow: visible;
+    width: 70%; /* Taking the remaining space */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Horizontal centering */
+    justify-content: center; /* Vertical centering */
+}
+
+.header-text-small {
+    font-size: 5vw;
 }
