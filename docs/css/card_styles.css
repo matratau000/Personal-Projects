@@ -1,0 +1,114 @@
+/* Global Styles for Cards */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: #eeeeea;
+}
+
+.wrapper {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    max-width: 1200px; /* or any suitable width */
+    margin: auto;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    overflow: visible;
+    padding: 0 10px 20px 10px;
+}
+
+.card {
+    width: 80px;
+    background-size: cover;
+    cursor: pointer;
+    overflow: hidden; /* Ensuring shadows are visible */
+    border-radius: 1000px;
+    margin: 0 10px;
+    display: flex;
+    align-items: flex-end;
+    transition: .6s cubic-bezier(.28,-0.03,0,.99);
+    box-shadow: 0px 10px 40px -5px rgba(0,0,0,0.5);  /* Modified for a more gradual shadow */
+}
+
+.card > .row {
+    color: #333;  /* Dark color for better contrast */
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.card > .row > .description {
+    z-index: 11; /* Make it display above the icon */
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    overflow: hidden;
+    transition: all .3s ease;
+    padding: 10px 20px;
+    position: absolute;
+    bottom: auto;
+    right: 10px;
+}
+
+.description h4, .description p {
+    color: #FFFFFF;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Responsive Styles for Cards */
+/* Mobile styles */
+@media (max-width: 800px) {
+    /* Initially set the overlay to be invisible and cover the whole screen */
+    body::before {
+        content: '';
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0,0,0,0.7); /* semi-transparent black */
+        opacity: 0;
+        pointer-events: none; /* make it non-clickable */
+        z-index: 5; /* overlay should be below the card but above everything else */
+        transition: opacity 0.3s;
+    }
+
+    /* If a card is checked, display the overlay */
+    input:checked ~ body::before {
+        opacity: 1;
+    }
+
+    /* Style for the selected card on mobile */
+    input:checked + label {
+        transform: scale(1.2) translateY(-50%); /* scale the card up and move it to the center */
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(1.2); /* center the card on the screen */
+        z-index: 10; /* card should be above the overlay */
+    }
+
+    /* Reset the styles for the card content */
+    input:checked + label .description {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Increase z-index of checked card */
+input:checked + label {
+    z-index: 10;
+}
+

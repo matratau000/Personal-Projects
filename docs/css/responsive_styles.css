@@ -1,0 +1,39 @@
+/* Default styles (Mobile-first) */
+
+.header-text-small,
+.header-text-large {
+    text-align: center;  /* Center the text */
+    word-break: break-word;  /* Prevents long words from overflowing */
+    overflow-wrap: break-word;  /* Breaks long words to next line */
+}
+
+/* Media Queries for larger screens */
+
+/* For tablets and small desktops */
+@media (min-width: 768px) {
+    /* Adjust header font size, padding, or other properties as required */
+    .header-text-small {
+        font-size: 1.5rem;
+        padding: 1rem 0;
+    }
+    .header-text-large {
+        font-size: 2rem;
+        padding: 1rem 0;
+    }
+
+    /* Adjust section padding or other properties for larger screens */
+    section {
+        padding: 3rem 0;
+    }
+}
+
+/* For large desktops */
+@media (min-width: 1200px) {
+    /* Further adjust styles for larger desktop screens if necessary */
+    .header-text-small {
+        font-size: 2rem;
+    }
+    .header-text-large {
+        font-size: 2.5rem;
+    }
+}

@@ -1,0 +1,15 @@
+.container1 {
+    background: #ffffff;
+    margin: 15px auto;
+    padding: 15px;
+    border: 1px solid #dddddd;
+    box-shadow: 0px 4px 6px 0px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease;
+    max-width: 80%;
+    text-align: center;
+}
+
+.container1:hover {
+    box-shadow: 0px 6px 8px 0px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+}

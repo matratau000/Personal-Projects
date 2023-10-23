@@ -1,0 +1,136 @@
+#orbit-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: auto auto 20px;
+}
+
+#projects-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: auto; /* Allow the width to adjust to the content. */
+    text-align: center;
+    font-size: 2em; /* Adjust according to your preference. */
+    color: white; /* Adjust according to your preference. */
+    font-weight: bold; /* Makes the text bold. */
+    text-shadow: 2px 2px 4px #000000; /* Optional: Adds a subtle shadow to the text. */
+    z-index: 1;
+}
+
+.orbit {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    text-align: center;
+    z-index: 2;
+}
+
+#html5-icon {
+    animation-name: orbit-html5;
+    animation-duration: 10s;
+}
+
+#js-icon {
+    animation-name: orbit-js;
+    animation-duration: 15s;
+}
+
+#ruby-icon {
+    animation-name: orbit-ruby;
+    animation-duration: 13s;
+}
+
+#python-icon {
+    animation-name: orbit-python;
+    animation-duration: 12s;
+}
+
+#java-icon {
+    animation-name: orbit-java;
+    animation-duration: 8s;
+}
+
+#css3-icon {
+    animation-name: orbit-css3;
+    animation-duration: 14s;
+}
+
+#nodejs-icon {
+    animation-name: orbit-nodejs;
+    animation-duration: 9s;
+}
+
+#react-icon {
+    animation-name: orbit-react;
+    animation-duration: 11s;
+}
+
+#angular-icon {
+    animation-name: orbit-angular;
+    animation-duration: 16s;
+}
+
+@keyframes orbit-html5 {
+    0% { transform: rotate(0deg) translateX(100px) rotate(0deg); }
+    100% { transform: rotate(360deg) translateX(100px) rotate(-360deg); }
+}
+
+@keyframes orbit-js {
+    0% { transform: rotate(30deg) translateX(80px) rotate(-30deg); }
+    100% { transform: rotate(390deg) translateX(80px) rotate(-390deg); }
+}
+
+@keyframes orbit-ruby {
+    0% { transform: rotate(60deg) translateX(120px) rotate(-60deg); }
+    100% { transform: rotate(420deg) translateX(120px) rotate(-420deg); }
+}
+
+@keyframes orbit-python {
+    /* Different Starting Point and Rotation */
+    0% { transform: rotate(90deg) translateX(110px) rotate(-90deg); }
+    100% { transform: rotate(450deg) translateX(110px) rotate(-450deg); }
+}
+
+@keyframes orbit-java {
+    /* Different Starting Point and Rotation */
+    0% { transform: rotate(120deg) translateX(90px) rotate(-120deg); }
+    100% { transform: rotate(480deg) translateX(90px) rotate(-480deg); }
+}
+
+@keyframes orbit-css3 {
+    /* Different Starting Point and Rotation */
+    0% { transform: rotate(150deg) translateX(70px) rotate(-150deg); }
+    100% { transform: rotate(510deg) translateX(70px) rotate(-510deg); }
+}
+
+@keyframes orbit-nodejs {
+    /* Different Starting Point and Rotation */
+    0% { transform: rotate(180deg) translateX(130px) rotate(-180deg); }
+    100% { transform: rotate(540deg) translateX(130px) rotate(-540deg); }
+}
+
+@keyframes orbit-react {
+    /* Different Starting Point and Rotation */
+    0% { transform: rotate(210deg) translateX(100px) rotate(-210deg); }
+    100% { transform: rotate(570deg) translateX(100px) rotate(-570deg); }
+}
+
+@keyframes orbit-angular {
+    /* Different Starting Point and Rotation */
+    0% { transform: rotate(240deg) translateX(80px) rotate(-240deg); }
+    100% { transform: rotate(600deg) translateX(80px) rotate(-600deg); }
+}
+
+@media (max-width: 600px) {
+    #projects-title {
+        font-size: 1.5em; /* Adjust as necessary. */
+    }
+}
